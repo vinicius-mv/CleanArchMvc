@@ -30,7 +30,7 @@ namespace CleanArchMvc.Infra.Data.Migrations
                     Price = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
                     Stock = table.Column<int>(type: "int", nullable: false),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CategoryId = table.Column<int>(type: "int", nullable: false)
+                    CategoryId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -40,7 +40,7 @@ namespace CleanArchMvc.Infra.Data.Migrations
                         column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.InsertData(
@@ -58,10 +58,10 @@ namespace CleanArchMvc.Infra.Data.Migrations
                 columns: new[] { "Id", "CategoryId", "Description", "Image", "Name", "Price", "Stock" },
                 values: new object[,]
                 {
-                    { 1, 0, "Composition Notebook - College Ruled 110 Pages - Large 8.5 x 11", "notebook-leopard.jpg", "Notebook: Leopard Print", 4.99m, 20 },
-                    { 2, 0, "Big Capacity Pencil Bag Large Storage Pouch 3 Compartments", "large-pencil-case.jpg", "Large Pencil Case", 9.99m, 15 },
-                    { 3, 0, "Large, White, Pack of 4", "pentel-pack4-eraser.jpg", "Pentel Hi-Polymer Block Eraser", 2.99m, 30 },
-                    { 4, 0, "Texas Instruments TI-30Xa", "texas-scientific-calculator.jpg", "Scientific Calculator", 8.94m, 10 }
+                    { 1, null, "Composition Notebook - College Ruled 110 Pages - Large 8.5 x 11", "notebook-leopard.jpg", "Notebook: Leopard Print", 4.99m, 20 },
+                    { 2, null, "Big Capacity Pencil Bag Large Storage Pouch 3 Compartments", "large-pencil-case.jpg", "Large Pencil Case", 9.99m, 15 },
+                    { 3, null, "Large, White, Pack of 4", "pentel-pack4-eraser.jpg", "Pentel Hi-Polymer Block Eraser", 2.99m, 30 },
+                    { 4, null, "Texas Instruments TI-30Xa", "texas-scientific-calculator.jpg", "Scientific Calculator", 8.94m, 10 }
                 });
 
             migrationBuilder.CreateIndex(
