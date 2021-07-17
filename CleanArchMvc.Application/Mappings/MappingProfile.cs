@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace CleanArchMvc.Application.Mappings
 {
-    public class DomainToDtoMappingProfile : Profile
+    public class MappingProfile : Profile
     {
-        public DomainToDtoMappingProfile()
+        public MappingProfile()
         {
-            CreateMap<CategoryDto, CategoryDto>().ReverseMap();
+            CreateMap<Category, CategoryDto>().ReverseMap();
             CreateMap<Product, ProductDto>().ReverseMap();
         }
     }

@@ -1,0 +1,63 @@
+﻿@using CleanArchMvc.Application.Dtos
+@model IEnumerable<ProductDto>
+
+@{
+    ViewData["Title"] = "Products Management";
+}
+
+<style>
+    .model-lg {
+        max-width: 80%
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-12">
+        <div>
+            <div class="pull-left">
+                <a asp-action="Create" class="btn btn-primary">
+                    <span title="Register New" class="fas fa-plus"></span>Register New
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+
+<div class="panel panel-defult">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Name)</th>
+                <th>@Html.DisplayNameFor(model => model.Description)</th>
+                <th>@Html.DisplayNameFor(model => model.Price)</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(model => item.Name)</td>
+                    <td>@Html.DisplayFor(model => item.Description)</td>
+                    <td>@Html.DisplayFor(model => item.Price)</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" title="Edit" class="btn btn-warning">
+                            <span class="fas fa-edit">Edit</span>>
+                        </a>
+
+                        <a asp-action="Details" asp-route-id="@item.Id" title="Details" class="btn btn-primary">
+                            <span class="fas fa-edit">Details</span>>
+                        </a>
+
+                        <a asp-action="Delete" asp-route-id="@item.Id" title="Delete" class="btn btn-danger">
+                            <span class="fas fa-edit">Delete</span>>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
