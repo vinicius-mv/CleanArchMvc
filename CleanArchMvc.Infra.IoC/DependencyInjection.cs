@@ -32,7 +32,6 @@ namespace CleanArchMvc.Infra.IoC
             services.AddScoped<IProductService, ProductService>();
 
             // AutoMapper Configuration
-            var mapperConfig = new MapperConfiguration(mc  => mc.AddProfile(typeof(Profile)));
             services.AddAutoMapper(typeof(DomainToDtoMappingProfile));
 
             // MediatR Configuration
