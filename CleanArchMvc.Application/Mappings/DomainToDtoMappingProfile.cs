@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace CleanArchMvc.Application.Mappings
 {
-    public class MappingProfile : Profile
+    public class DomainToDtoMappingProfile : Profile
     {
-        public MappingProfile()
+        public DomainToDtoMappingProfile()
         {
             CreateMap<Category, CategoryDto>().ReverseMap();
             CreateMap<Product, ProductDto>().ReverseMap();
